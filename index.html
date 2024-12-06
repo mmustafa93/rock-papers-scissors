@@ -6,6 +6,47 @@
     <title>Document</title>
 </head>
 <body>
-    <script>console.log("hello world!")</script>
+    <script>
+        const options = ["rock", "paper", "scissors"]
+        let humanScore = 0;
+        let computerScore = 0;
+        function getComputerChoice(){
+            return options[Math.floor(Math.random() * 3)];
+        }
+        function getHumanChoice(){
+            return prompt("What is your choice?").toLowerCase()
+        }
+        function playRound(humanChoice, computerChoice){
+            if (humanChoice === computerChoice){
+                console.log("It's a tie!")
+            } else if (humanChoice === "rock" && computerChoice === "scissors"){
+                console.log("You win! Rock beats Scissors!")
+                humanScore++
+            } else if (computerChoice === "rock" && humanChoice === "scissors"){
+                console.log("Computer wins!  Rock beats Scissors!")
+                computerScore++
+            } else if (humanChoice === "scissors" && computerChoice === "paper"){
+                console.log("You win! Scissors beats Paper!")
+                humanScore++
+            } else if (computerChoice === "scissors" && humanChoice === "paper"){
+                console.log("Computer wins! Scissors beats Paper!")
+                computerScore++
+            } else if (humanChoice === "paper" && computerChoice === "rock"){
+                console.log("You win! Paper beats Rock!")
+                humanScore++
+            } else if (computerChoice === "paper" && humanChoice === "rock"){
+                console.log("Computer wins! Paper beats Rock!")
+                computerScore++
+            }
+            console.log(humanScore)
+            console.log(computerScore)
+        }
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+
+        
+    </script>
 </body>
 </html>
