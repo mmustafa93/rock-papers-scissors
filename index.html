@@ -3,62 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script>
-        const options = ["rock", "paper", "scissors"]
-        function getComputerChoice(){
-            return options[Math.floor(Math.random() * 3)];
-        }
-        function getHumanChoice(){
-            return prompt("What is your choice?").toLowerCase()
-        }
-
-        function playGame(){
-            
-
-            let humanScore = 0;
-            let computerScore = 0;
-
-            for (let i = 0; i < 6; i++){
-                if (i < 5){
-                    playRound(getHumanChoice(), getComputerChoice())
-                } else if (i < 6){
-                    console.log(`Final Scores: Human: ${humanScore} and Computer ${computerScore}`)
-                } else {
-                    return
-                }
-            }
-
-            function playRound(humanChoice, computerChoice){
-                if (humanChoice === computerChoice){
-                    console.log("It's a tie!")
-                } else if (humanChoice === "rock" && computerChoice === "scissors"){
-                    console.log("You win! Rock beats Scissors!")
-                    humanScore++
-                } else if (computerChoice === "rock" && humanChoice === "scissors"){
-                    console.log("Computer wins!  Rock beats Scissors!")
-                    computerScore++
-                } else if (humanChoice === "scissors" && computerChoice === "paper"){
-                    console.log("You win! Scissors beats Paper!")
-                    humanScore++
-                } else if (computerChoice === "scissors" && humanChoice === "paper"){
-                    console.log("Computer wins! Scissors beats Paper!")
-                    computerScore++
-                } else if (humanChoice === "paper" && computerChoice === "rock"){
-                    console.log("You win! Paper beats Rock!")
-                    humanScore++
-                } else if (computerChoice === "paper" && humanChoice === "rock"){
-                    console.log("Computer wins! Paper beats Rock!")
-                    computerScore++
-                }
-            }
-
-            
-        }
-        
-        playGame()
-    </script>
+    <div class="game-container">
+        <h1>Rock, Paper, Scissors</h1>
+        <p class="rules">Rules: First to 5 wins the game. Choose Rock, Paper, or Scissors!</p>
+        <div id="game">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <div id="results">
+            <p id="score">Human: 0 | Computer: 0</p>
+            <p id="message">Let the game begin!</p>
+        </div>
+        <button id="restart" class="hidden">Restart Game</button>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
